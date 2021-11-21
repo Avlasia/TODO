@@ -1,5 +1,8 @@
 :root{
     --colorone: #351c75;
+    --coloronecomp: black;
+    --colortwo: white;
+    --colortwocomp: black;
 }
 
 body{
@@ -7,6 +10,8 @@ body{
     margin-left: 0;
     font-family: 'Assistant', sans-serif;
     overflow: hidden;
+    background-color: var(--colortwo);
+    color: var(--colortwocomp);
 }
 
 nav{
@@ -17,7 +22,7 @@ nav{
     margin-bottom: 0;
     position: absolute;
     top: 5px;
-    background-color: white;
+    background-color: var(--colortwo);
 }
 
 nav img{
@@ -60,8 +65,9 @@ nav a{
     max-width: 200px;
     background-color: var(--colorone);
     padding: 30px;
-    padding-top: 70px;
+    padding-top:90px;
     height: 100vh;
+    position: absolute;
 }
 
 #ListNav{
@@ -71,4 +77,69 @@ nav a{
 
 #ListNav .Active{
     font-weight: 1000;
+}
+
+#ListOfLists p{
+    background-color: var(--colorone);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#ListOfLists p:hover{
+    filter: brightness(2)
+}
+
+#RightStuff{
+    color: white; 
+    width: 300px;
+    background-color: var(--colorone);
+    padding: 30px;
+    padding-top: 70px;
+    height: 100vh;
+
+    position: absolute;
+    right: 0;
+
+}
+
+#RightToggle{
+    height:50px;
+    width: 50px;
+    padding: 5px;
+    border-radius: 30px 0 0 0;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    background-color: var(--colorone);
+}
+
+#RightToggle img{
+    position: relative;
+    bottom: -7px;
+    right: -7px;
+    height:40px;
+}
+
+#RightToggle:hover{
+    filter: brightness(2)
+}
+
+#NextTaskTitle{
+    font-size: 25px;
+}
+
+#NextTaskDesc{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+#NextTask img{
+    height: 20px;
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.invert{
+    filter: invert();
 }

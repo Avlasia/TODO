@@ -3,25 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>ToDo - My page</title>
-        <link rel="stylesheet" href="Styles/StyleMain.css"> <!-- "StyleMain" to be default-->
+        <link rel="icon" href="Images/LogoNB.png">
         
         <!-- Font download -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
         <!-- Font download -->
-    </head>
-    <body>
-        <!--Top Nav Bar-->
-        <nav>
-            <img id="Logo" src="Images/LogoBlack.png">
-            <h1>ToDo</h1>
 
-            <div id="NavButtons">
-                <a id="Calendar">Calendar</a>
-                <a id="Settings"><img src="Images/SettingsBlack.png"></a>
-            </div>
-        </nav>
+        <link rel="stylesheet" href="Styles/StyleMain.css"> <!-- "StyleMain" to be default-->
+    </head>
+    <body>       
 
         <!-- Side Nav Bar-->
         <div id=ListNav>
@@ -33,10 +25,38 @@
             <input id="NewList" type="text" placeholder="New List">
         </div>
 
+        <!-- Right Details-->
         <div id="RightStuff">
-            
+            <div id=Summary>
+                <h1 id="Date">Date</h1>
+                <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc>There is no tasks</span></p>
+            </div>
+            <div id=Notes>
+                <p>My Notes:</p>
+                <ul>
+                    <li>Hello</li>
+                    <li>Do something</li>
+                    <li>Website address: https://avlasia.github.io/TODO/To-Do%20list/Home.html :)</li>
+                </ul>
+                <input id="NewNote" type="text" placeholder="Note:">
+            </div>
+        </div>
+
+        <div id="RightToggle">
+            <img class="invert" src="Images/ExpandNB.png" alt="Hide menu">
         </div>
         
+        <!--Top Nav Bar-->
+        <nav>
+            <img id="Logo" src="Images/LogoNB.png" alt="Logo">
+            <h1>ToDo</h1>
+
+            <div id="NavButtons">
+                <a id="Calendar">Calendar</a>
+                <a id="Settings"><img src="Images/SettingsNB.png" alt="Settings"></a>
+            </div>
+        </nav>
         
+        <script src="Javascript/Index.js"></script>
     </body>
 </html>
