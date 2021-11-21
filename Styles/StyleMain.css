@@ -1,0 +1,145 @@
+:root{
+    --colorone: #351c75;
+    --coloronecomp: black;
+    --colortwo: white;
+    --colortwocomp: black;
+}
+
+body{
+    width:100%;
+    margin-left: 0;
+    font-family: 'Assistant', sans-serif;
+    overflow: hidden;
+    background-color: var(--colortwo);
+    color: var(--colortwocomp);
+}
+
+nav{
+    width: 100%;
+    border-bottom: 3px solid var(--colorone);
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    position: absolute;
+    top: 5px;
+    background-color: var(--colortwo);
+}
+
+nav img{
+    height: 40px;
+    margin: 10px 0 0 10px;
+    vertical-align: text-bottom;
+    display: inline;
+}
+
+#NavButtons{
+    float: right;
+    margin-right: 30px;
+}
+
+nav h1{
+    font-weight: bold;
+    font-size: 40px;
+    display: inline;
+    padding-top: -40px;
+    margin-left: 10px;
+}
+
+nav a{
+    font-size: 30px;
+    display: inline;
+    padding-top: -40px;
+    margin-right: -10px;
+    margin-left: 5px;
+}
+
+#Calendar{
+    border-right:  3px solid var(--colorone);
+    padding: 0 10px;
+}
+
+#ListNav{
+    color: white; 
+    width: 15%;
+    min-width: 100px;
+    max-width: 200px;
+    background-color: var(--colorone);
+    padding: 30px;
+    padding-top:90px;
+    height: 100vh;
+    position: absolute;
+}
+
+#ListNav{
+    font-size: 30px;
+    line-height: 80%;
+}
+
+#ListNav .Active{
+    font-weight: 1000;
+}
+
+#ListOfLists p{
+    background-color: var(--colorone);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#ListOfLists p:hover{
+    filter: brightness(2)
+}
+
+#RightStuff{
+    color: white; 
+    width: 300px;
+    background-color: var(--colorone);
+    padding: 30px;
+    padding-top: 70px;
+    height: 100vh;
+
+    position: absolute;
+    right: 0;
+
+}
+
+#RightToggle{
+    height:50px;
+    width: 50px;
+    padding: 5px;
+    border-radius: 30px 0 0 0;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    background-color: var(--colorone);
+}
+
+#RightToggle img{
+    position: relative;
+    bottom: -7px;
+    right: -7px;
+    height:40px;
+}
+
+#RightToggle:hover{
+    filter: brightness(2)
+}
+
+#NextTaskTitle{
+    font-size: 25px;
+}
+
+#NextTaskDesc{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+#NextTask img{
+    height: 20px;
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.invert{
+    filter: invert();
+}
