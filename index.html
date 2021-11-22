@@ -24,21 +24,27 @@
             </div>
             <input id="NewList" type="text" placeholder="New List">
         </div>
-        
+
         <!-- Right Details-->
         <div id="RightStuff">
             <div id=Summary>
                 <h1 id="Date">Date</h1>
                 <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc>There is no tasks</span></p>
+                <div id="claim">
+                    <h1><span>X</span>/<span>X</span> Tasks Completed</h1>
+                    <button>CLAIM</button>
+                </div>
             </div>
-            <div id=Notes>
+
+            <div id="line"></div>
+            <div id="Notes">
                 <p>My Notes:</p>
                 <ul>
                     <li>Hello</li>
-                    <li>Do something later</li>
+                    <li>Do something</li>
                     <li>Website address: https://avlasia.github.io/TODO/To-Do%20list/Home.html :)</li>
                 </ul>
-                <input id="NewNote" type="text" placeholder="Note:">
+                <input id="NewNote" type="text" placeholder="New Note">
             </div>
         </div>
 
@@ -56,6 +62,14 @@
                 <a id="Settings"><img src="Images/SettingsNB.png" alt="Settings"></a>
             </div>
         </nav>
+
+        <div id="Main">
+            <h1>Today</h1>
+            <p id="AllCleared">Congragalations, You have cleared all tasks for today!</p>
+            <p class="Task computing"><img src="Images/Unchecked.png"><span>Do your work</span><br><span></span></p>
+
+
+        </div>
         
         <script src="Javascript/Index.js"></script>
     </body>
