@@ -8,3 +8,8 @@ var date = `${weekdayNames[d.getDay()]} ${d.getDate()}, ${monthNames[d.getMonth(
 document.querySelector('#RightStuff h1').textContent = date;
 
 //Tasks
+var todolist
+todolist = [
+    ["Test this task looks right", "Various details", "Computing", "2021-11-23", "1:00"]
+]
+
