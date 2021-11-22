@@ -90,7 +90,7 @@ nav a{
 }
 
 #ListOfLists p:hover{
-    filter: brightness(var(--coloroneAccent))
+    filter: brightness(var(--coloroneAccent));
 }
 
 #RightStuff{
@@ -180,5 +180,31 @@ nav a{
 #Main{
     padding-top: 90px;
     padding-left: 40px;
-    margin-left: 240px;
+    margin-left: 260px;
+    overflow:auto;
+    width: calc(100vw - 600px);
 }
+
+#tToday{
+    margin-bottom: 0;
+}
+
+#AllCleared{
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.task img{
+    height: 17px;
+    margin-right: 10px;
+}
+
+.tHeading{
+    font-size: 25px;
+}
+
+.tDesc{
+    margin-left: 31px;
+}
+

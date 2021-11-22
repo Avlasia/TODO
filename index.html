@@ -31,7 +31,7 @@
                 <h1 id="Date">Date</h1>
                 <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc>There is no tasks</span></p>
                 <div id="claim">
-                    <h1><span>X</span>/<span>X</span> Tasks Completed</h1>
+                    <h1><span id="noComp">X</span id="noReq">/<span>X</span> Tasks Completed</h1>
                     <button>CLAIM</button>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <ul>
                     <li>Hello</li>
                     <li>Do something</li>
-                    <li>Website address: https://avlasia.github.io/TODO/To-Do%20list/Home.html :)</li>
+                    <li>Website address: https://avlasia.github.io/TODO/ :)</li>
                 </ul>
                 <input id="NewNote" type="text" placeholder="New Note">
             </div>
@@ -64,9 +64,25 @@
         </nav>
 
         <div id="Main">
-            <h1>Today</h1>
+            <h1 id="tToday">Today</h1>
             <p id="AllCleared">Congragalations, You have cleared all tasks for today!</p>
-            <p class="Task computing"><img src="Images/Unchecked.png"><span>Do your work</span><br><span></span></p>
+            <p class="task computing">
+                <img src="Images/Unchecked.png">
+                <span class="tHeading">Do your work</span>
+                <span class="tDesc"><br>Do it.</span>
+            </p>
+            <p class="task computing">
+                <img src="Images/Unchecked.png">
+                <span class="tHeading">Do your work</span>
+                <span class="tDesc"><br></span>
+            </p>
+            <p class="task computing">
+                <img src="Images/Unchecked.png">
+                <span class="tHeading">Do your work</span>
+                <span class="tDesc"><br>Do it.</span>
+            </p>
+
+            <h1 id="tTomorrow">Tomorrow</h1>
 
 
         </div>
