@@ -47,7 +47,7 @@ function displayTask(taskNo, taskDetails, due){
         } 
 
     } else if(due=='Tomorrow'){
-
+        console.log("fail")
     } else {
         console.log("fail")
     }
