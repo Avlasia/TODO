@@ -181,8 +181,10 @@ nav a{
     padding-top: 90px;
     padding-left: 40px;
     margin-left: 260px;
-    overflow:auto;
-    width: calc(100vw - 600px);
+    overflow-y: scroll;
+    width: calc(100vw - 650px);
+    height: 100vh;
+    margin-bottom: 90px;
 }
 
 #tToday{
@@ -190,11 +192,13 @@ nav a{
 }
 
 #AllCleared{
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 0;
     margin-bottom: 0;
 }
 
+
+/*Task styles*/
 .task img{
     height: 17px;
     margin-right: 10px;
@@ -208,3 +212,32 @@ nav a{
     margin-left: 31px;
 }
 
+.tSub{
+    background-color: lightgray;
+    padding: 0 5px;
+    border-radius: 40px;
+}
+
+.tTime{
+    float:right;
+    text-align: right;
+    margin-right: 60px;
+    margin-top: 5px;
+}
+
+.tUrgent{
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    padding: 0 7.5px;
+    border-radius: 100%;
+    margin-left: 5px;
+}
+
+.red img{
+    filter: invert(19%) sepia(100%) saturate(7447%) hue-rotate(359deg) brightness(96%) contrast(113%);
+}
+
+.red .tSub{
+    background-color: red;
+}
