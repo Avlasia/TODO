@@ -184,14 +184,14 @@ nav a{
     overflow-y: scroll;
     width: calc(100vw - 650px);
     height: 100vh;
-    margin-bottom: 90px;
+    padding-bottom: 120px;
 }
 
 #tToday{
     margin-bottom: 0;
 }
 
-#AllCleared{
+.allclear{
     font-size: 25px;
     margin-top: 0;
     margin-bottom: 0;
@@ -240,4 +240,8 @@ nav a{
 
 .red .tSub{
     background-color: red;
+}
+
+#end{
+    color: var(--colortwo);
 }
