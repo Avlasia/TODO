@@ -10,6 +10,10 @@
     filter: invert();
 }
 
+.hidden{
+    display: none;
+}
+
 body{
     width:100%;
     margin-left: 0;
