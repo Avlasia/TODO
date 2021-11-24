@@ -21,6 +21,7 @@
                 <p id="ListMain">All tasks</p>
                 <p id="List1" class="Active">School</p>
                 <p id="List2">Chores</p>
+                <p id="DoneList">Completed</p>
             </div>
             <input id="NewList" type="text" placeholder="New List">
         </div>
@@ -67,7 +68,7 @@
         <div id="Main">
             <div id="tToday">
             <h1>Today</h1>
-            <p id="AllCleared" class="allclear">Congratulations, You have cleared all tasks for today!</p>
+            <p id="AllCleared" class="allclear hidden">Congratulations, You have cleared all tasks for today!</p>
             
             <p class="task computing">
                 <span class="tTime">Due: 23/11/2021 5:00</span>
@@ -79,16 +80,16 @@
             </p>
         </div>
 
-            <p>
-                <label>+</label><input id="nHeading" name="nHeading" type="text" placeholder="New Task" onclick="ShowNDetails()">
+            <p id="TaskForm">
+                <label>+</label><input id="nHeading" name="nHeading" type="text" placeholder="New Task" maxlength="200">
                 <span id="newTaskDetails">
                     <input id="nUrgent" type="checkbox"><label>Urgent</label><br>
-                    <input id="nDesc" name="nDesc" type="text" placeholder="Add description"><br>
-                    <label>Subject: </label><select id="nSubject" name="nSubject">
-                        <option>Other</option>
+                    <input id="nDesc" name="nDesc" type="text" placeholder="Add description" maxlength="1000"><br>
+                    <label>Sub-group: </label><select id="nSubject" name="nSubject">
+                        <option value="">None</option>
                     </select>
-                    <button id="newSub">New Subject</button>
-                    <input id="nDate" name="nDate" type="date"><input id="nTime" name="nTime" type="time"><button>Create</button>
+                    <button id="newSub">New Sub-group</button>
+                    <input id="nDate" name="nDate" type="date"><input id="nTime" name="nTime" type="time"><button onclick="addNewTask()">Create</button>
                 </span>
                 
             </p>
@@ -97,6 +98,7 @@
             <h1>Tomorrow</h1>
             <p id="AllClearedt" class="allclear">Congratulations, You have no tasks tomorrow!</p>
         </div>
+
         <div id="tLater">
             <h1>Later/No Date</h1>
             <p id="AllClearedl" class="allclear">Congratulations, You have no other tasks!</p>
