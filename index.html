@@ -18,16 +18,18 @@
         <!-- Side Nav Bar-->
         <div id=ListNav>
             <div id=ListOfLists>
-                <p id="ListMain">All tasks</p>
-                <p id="List1" class="Active">School</p>
-                <p id="List2">Chores</p>
-                <p id="DoneList">Completed</p>
+                <p id="All" onclick="loadtasks('All')">All</p>
+                <div id="MyLists">
+                <p id="School" class="Active">School</p>
+                <p id="Chores">Chores</p>
+                </div>
+                <p id="Completed" style="cursor: not-allowed; color: gray;">Completed</p>
             </div>
             <input id="NewList" type="text" placeholder="New List">
         </div>
 
-        <!-- Right Details-->
-        <div id="RightStuff">
+        <!-- Right Details -->
+        <div id="RightStuff" class=''>
             <div id=Summary>
                 <h1 id="Date">Date</h1>
                 <h3 style="margin-bottom: 5px;">Next Task:</h3>
@@ -50,7 +52,7 @@
             </div>
         </div>
 
-        <div id="RightToggle">
+        <div id="RightToggle" onclick="rightToggle()" title="Hide Menu">
             <img class="invert" src="Images/ExpandNB.png" alt="Hide menu">
         </div>
         
@@ -66,7 +68,7 @@
         </nav>
 
         <!--Main-->
-        <div id="Main">
+        <div id="Main" class="rightSquish">
             <div id="tToday">
             <h1>Today</h1>
             <p id="AllCleared" class="allclear hidden">Congratulations, You have cleared all tasks for today!</p>

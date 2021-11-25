@@ -65,6 +65,8 @@ nav a{
 #Calendar{
     border-right:  3px solid var(--colorone);
     padding: 0 10px;
+    cursor: not-allowed;
+    color: gray;
 }
 
 #ListNav{
@@ -190,11 +192,14 @@ nav a{
     padding-left: 40px;
     margin-left: 260px;
     overflow-y: scroll;
-    width: calc(100vw - 700px);
-    padding-right: 45px;
     height: 100vh;
     padding-bottom: 120px;
+}
+
+.rightSquish{
     overflow-x: hidden;
+    width: calc(100vw - 700px);
+    padding-right: 45px;
 }
 
 #tToday{
@@ -231,7 +236,6 @@ nav a{
 .tTime{
     float:right;
     text-align: right;
-    margin-right: 60px;
     margin-top: 5px;
 }
 
@@ -255,3 +259,4 @@ nav a{
 #end{
     color: var(--colortwo);
 }
+

@@ -14,9 +14,11 @@ console.log(tommorowISO)
 document.querySelector('#RightStuff h1').textContent = date;
 
 //Tasks
+var lists = [School,Chores]
+
 var todolist;
 todolist = [
-    ["School", "Test this task looks right", "Various details", "Computing", "2021-11-24", "1:00", true],
+    ["", "Test this task looks right", "Various details", "Computing", "2021-11-24", "1:00", true],
     ["School", "Something else", "", "", "2021-11-27", "5:00", false]
 ]
 
@@ -47,6 +49,8 @@ var Later = document.getElementById("tLater")
 var nextTaskId = 0 
 var NextTaskDisplay = document.getElementById("NextTask")
 
+var RightShown = true
+
 function celebrateNT(){
     if(Today.textContent.replace(/\s/g,'') == 'Today Congratulations, You have cleared all tasks for today!'.replace(/\s/g,'')){
         document.getElementById('AllCleared').classList.remove('hidden')
@@ -67,7 +71,7 @@ function celebrateNT(){
 }
 
 function displayTask(taskNo, taskDetails){
-    if(currentList != ''){
+    if(currentList != 'All'){
         if(currentList != taskDetails[0]){
             return null
         }
@@ -176,32 +180,99 @@ function completeTask(taskNo){
 }
 
 function getNextTask(){
-    var nextTask = ['','']
-    var i = 0
-    while(todolist[i] !=
-        )
-    }};
+    var nextTask = ['',''];
+    var i = 0;
+    nextTaskId = 0;
+    while(todolist[i] !== undefined){
+        if(todolist[i][4]){
+        if(todolist[i][4] !== ''){
+            console.log(todolist[i][4])
+            if(nextTask[0]==''){
+                nextTask[0]=todolist[i].slice(4,5);
+                nextTaskId = i;
+                console.log('1')
+            } else if(todolist[i][4]<nextTask[0]){
+                nextTask[0]=todolist[i].slice(4,5);
+                nextTaskId = i;
+                console.log('2')
+            } else if(todolist[i][4]==nextTask[0]){
+
+                if(todolist[i][5] !== ''){
+                    if(nextTask[1]==''){
+                        nextTask[1]=todolist[i].slice(5,6);
+                        nextTaskId = i;
+                        console.log('3')
+                    } else if(todolist[i][5]<nextTask[1]){
+                        nextTask[1]=todolist[i].slice(5,6);
+                        nextTaskId = i;
+                        console.log('4')
+                }
+            }
+        } else {
+            console.log('day = ""')
+        }}}
+        console.log(nextTask)
+        i++;
+        if(todolist[nextTaskId]===''){
+            nextTaskId=i;
+        }
+        console.log(nextTaskId)
+}
+}
 
 function displayNextTask(){
     getNextTask()
-    if(todolist[nextTaskId] == '' || todolist[nextTaskId] == undefined){
+    if(todolist[nextTaskId] === '' || todolist[nextTaskId] === undefined){
         NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Checked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
     } else {
         NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
         NextTaskDisplay.querySelector("#NextTaskTitle").textContent = todolist[nextTaskId][1];
         NextTaskDisplay.querySelector("#NextTaskDesc").textContent = todolist[nextTaskId][2];
-}}
+}
+}
 
-document.addEventListener("keyup", function(event) {
+function rightToggle(){
+    if(RightShown){
+        document.getElementById("Main").classList.remove('rightSquish');
+        document.getElementById("RightStuff").classList.add('hidden');
+    } else {
+        document.getElementById("Main").classList.add('rightSquish');
+        document.getElementById("RightStuff").classList.remove('hidden');
+    }
+    RightShown = !RightShown;
+}
+
+function loadtasks(listName){
+    currentList = listName;
+    Today.innerHTML = '<h1>Today</h1><p id="AllCleared" class="allclear hidden">Congratulations, You have cleared all tasks for today!</p>';
+    Tommorow.innerHTML = '<h1>Tomorrow</h1><p id="AllClearedt" class="allclear">Congratulations, You have no tasks tomorrow!</p>';
+    Later.innerHTML = '<h1>Later/No Date</h1><p id="AllClearedl" class="allclear">Congratulations, You have no other tasks!</p>';
+
+    var i = 0
+    while(todolist[i] !== undefined){
+        if(todolist[i] !== ''){
+            displayTask(i,todolist[i])
+        }
+        i++;
+    }
+
+    celebrateNT()
+}
+
+document.getElementById('TaskForm').addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
         addNewTask();
         getNextTask();
     }
 });
 
-displayTask('0',todolist[0])
-displayTask('1',todolist[1])
+document.getElementById('NewList').addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        
+    }
+});
+
+
+loadtasks('School')
 displayNextTask()
 celebrateNT()
-
-
