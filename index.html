@@ -30,7 +30,8 @@
         <div id="RightStuff">
             <div id=Summary>
                 <h1 id="Date">Date</h1>
-                <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc>There is no tasks</span></p>
+                <h3 style="margin-bottom: 5px;">Next Task:</h3>
+                <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span></p>
                 <div id="claim">
                     <h1><span id="noComp">X</span id="noReq">/<span>X</span> Tasks Completed</h1>
                     <button>CLAIM</button>
@@ -70,29 +71,29 @@
             <h1>Today</h1>
             <p id="AllCleared" class="allclear hidden">Congratulations, You have cleared all tasks for today!</p>
             
-            <p class="task computing">
+            <!--<p class="task computing">
                 <span class="tTime">Due: 23/11/2021 5:00</span>
                 <img src="Images/Unchecked.png">
                 <span class="tHeading">Get wire</span>
                 <span class="tUrgent">!</span><span class="tSub">Other</span>
                 
                 <br><span class="tDesc">3x 6cm long wires</span><br>
-            </p>
+            </p>-->
         </div>
 
-            <p id="TaskForm">
-                <label>+</label><input id="nHeading" name="nHeading" type="text" placeholder="New Task" maxlength="200">
-                <span id="newTaskDetails">
-                    <input id="nUrgent" type="checkbox"><label>Urgent</label><br>
-                    <input id="nDesc" name="nDesc" type="text" placeholder="Add description" maxlength="1000"><br>
-                    <label>Sub-group: </label><select id="nSubject" name="nSubject">
-                        <option value="">None</option>
-                    </select>
-                    <button id="newSub">New Sub-group</button>
-                    <input id="nDate" name="nDate" type="date"><input id="nTime" name="nTime" type="time"><button onclick="addNewTask()">Create</button>
-                </span>
-                
-            </p>
+        <p id="TaskForm">
+            <label>+</label><input id="nHeading" name="nHeading" type="text" placeholder="New Task" maxlength="200">
+            <span id="newTaskDetails">
+                <input id="nUrgent" type="checkbox"><label>Urgent</label><br>
+                <input id="nDesc" name="nDesc" type="text" placeholder="Add description" maxlength="1000"><br>
+                <label>Sub-group: </label><select id="nSubject" name="nSubject">
+                    <option value="">None</option>
+                </select>
+                <button id="newSub">New Sub-group</button>
+                <input id="nDate" name="nDate" type="date"><input id="nTime" name="nTime" type="time"><button onclick="addNewTask()">Create</button>
+            </span>
+            
+        </p>
         	
         <div id="tTomorrow">
             <h1>Tomorrow</h1>
@@ -109,7 +110,6 @@
              toilet paper attack claws fluff everywhere meow miao french ciao litterbox and kitty power. Why can't i catch that stupid red dot plop down in the middle where everybody walks so eat from dog's food so purrrrrr yet pet me pet me pet me pet me, bite, scratch, why are you petting me my water bowl is clean and freshly replenished, so i'll drink from the toilet. Catch eat throw up catch eat throw up bad birds cough hairball, eat toilet paper cats are cute lick butt, or hide at bottom of staircase to trip human jump around on couch, meow constantly until given food, . Sleeps on my head murf pratt ungow ungow. Hell is other people. Freak human out make funny noise mow mow mow mow mow mow success now attack human stare at ceiling, but sleep all day whilst slave is at work, play all night whilst slave is sleeping yet pelt around the house and up and down stairs chasing phantoms for refuse to drink water except out of someone's
               glass hiss and stare at nothing then run suddenly away scratch at door to be let outside, get let out then scratch at door immmediately after to be let back in. Wake up human for food at 4am drink water out of the faucet get suspicious of own shadow then go play with toilette paper sleeps on my head use lap as chair purr purr for no reason. Walk on car leaving trail of paw prints on hood and windshield drink from the toilet and good now the other hand, too always ensure to lay down in such a manner that tail can lightly brush human's nose cats secretly make all the worlds muffins. Missing until dinner time freak human out make funny noise mow mow mow mow mow mow success now attack human but i shredded your linens for you run at 3a
         </div>
-        
         <script src="Javascript/Index.js"></script>
     </body>
 </html>

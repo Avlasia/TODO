@@ -132,6 +132,10 @@ nav a{
     filter: brightness(var(--coloroneAccent))
 }
 
+#NextTask{
+    margin-top: 0;
+}
+
 #NextTaskTitle{
     font-size: 25px;
 }
@@ -186,9 +190,11 @@ nav a{
     padding-left: 40px;
     margin-left: 260px;
     overflow-y: scroll;
-    width: calc(100vw - 650px);
+    width: calc(100vw - 700px);
+    padding-right: 45px;
     height: 100vh;
     padding-bottom: 120px;
+    overflow-x: hidden;
 }
 
 #tToday{

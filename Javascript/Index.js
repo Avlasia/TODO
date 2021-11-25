@@ -44,13 +44,16 @@ var Today = document.getElementById("tToday")
 var Tommorow = document.getElementById("tTomorrow")
 var Later = document.getElementById("tLater")
 
+var nextTaskId = 0 
+var NextTaskDisplay = document.getElementById("NextTask")
+
 function celebrateNT(){
     if(Today.textContent.replace(/\s/g,'') == 'Today Congratulations, You have cleared all tasks for today!'.replace(/\s/g,'')){
         document.getElementById('AllCleared').classList.remove('hidden')
     } else {
         document.getElementById('AllCleared').classList.add('hidden')
     }
-    if(Tommorow.textContent.replace(/\s/g,'') == 'Tomorrow   Congratulations, You have no tasks tomorrow!'.replace(/\s/g,'')){
+    if(Tommorow.textContent.replace(/\s/g,'') == 'Tomorrow Congratulations, You have no tasks tomorrow!'.replace(/\s/g,'')){
         document.getElementById('AllClearedt').classList.remove('hidden')
     } else {
         document.getElementById('AllClearedt').classList.add('hidden')
@@ -64,6 +67,11 @@ function celebrateNT(){
 }
 
 function displayTask(taskNo, taskDetails){
+    if(currentList != ''){
+        if(currentList != taskDetails[0]){
+            return null
+        }
+    }
     if(taskDetails[4]==todayISO){
         Today.innerHTML += `<p id="task${taskNo}" class="task"><img src="Images/Unchecked.png" onclick="completeTask(${taskNo})"><span class="tHeading">Do your work</span></p>`;
         task = document.getElementById('task'+taskNo);
@@ -108,9 +116,13 @@ function displayTask(taskNo, taskDetails){
         Later.innerHTML += `<p id="task${taskNo}" class="task"><img src="Images/Unchecked.png" onclick="completeTask(${taskNo})"><span class="tHeading">Do your work</span></p>`;
         task = document.getElementById('task'+taskNo);
         task.querySelector('.tHeading').textContent = taskDetails[1];
-        if(taskDetails[5]!==''){
-            var current = task.innerHTML;
+        var current = task.innerHTML;
+        if(taskDetails[4]!=='' && taskDetails[5]!==''){
             task.innerHTML = `<span class="tTime">Due: ${taskDetails[4]} ${taskDetails[5]}</span>${current}`;
+        } else if(taskDetails[4]!==''){
+            task.innerHTML = `<span class="tTime">Due: ${taskDetails[4]}</span>${current}`;
+        } else if(taskDetails[5]!==''){
+            task.innerHTML = `<span class="tTime">Due: ${taskDetails[5]}</span>${current}`;
         }
         if(taskDetails[6]==true){ //Urg
             task.innerHTML += '<span class="tUrgent">!</span>';
@@ -124,8 +136,7 @@ function displayTask(taskNo, taskDetails){
             task.querySelector('.tDesc').textContent = taskDetails[2];
         }
     }
-    celebrateNT()
-} 
+} //Not optimised at all
 
 function addNewTask(){
     if(nHeading.value){
@@ -149,6 +160,9 @@ function addNewTask(){
     } else {
         alert('Must include a task name')
     }
+
+    displayNextTask()
+    celebrateNT()
 }
 
 function completeTask(taskNo){
@@ -158,16 +172,36 @@ function completeTask(taskNo){
     tasksCompleted++
     console.log(donelist)
     celebrateNT()
+    displayNextTask()
 }
 
-// document.getElementById("TaskForm").addEventListener("keyup", function(event) {
-//     if (KeyboardEvent.keycode === 'Enter') {
-//         addNewTask();
-//     }
-//   });
+function getNextTask(){
+    var nextTask = ['','']
+    var i = 0
+    while(todolist[i] !=
+        )
+    }};
+
+function displayNextTask(){
+    getNextTask()
+    if(todolist[nextTaskId] == '' || todolist[nextTaskId] == undefined){
+        NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Checked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
+    } else {
+        NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
+        NextTaskDisplay.querySelector("#NextTaskTitle").textContent = todolist[nextTaskId][1];
+        NextTaskDisplay.querySelector("#NextTaskDesc").textContent = todolist[nextTaskId][2];
+}}
+
+document.addEventListener("keyup", function(event) {
+    if (event.code === 'Enter') {
+        addNewTask();
+        getNextTask();
+    }
+});
 
 displayTask('0',todolist[0])
 displayTask('1',todolist[1])
+displayNextTask()
 celebrateNT()
 
 
