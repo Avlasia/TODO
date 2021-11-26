@@ -395,3 +395,4 @@ document.getElementById('NewList').addEventListener("keyup", function(event) {
 loadtasks(currentList)
 displayNextTask()
 taskProgress()
+closePU()
