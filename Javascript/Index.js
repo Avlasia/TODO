@@ -325,6 +325,7 @@ function claimReward(){
         document.getElementById('pop-up').classList.remove('hidden')
         document.getElementById('ClaimMessage').classList.remove('hidden')
         tasksCompleted-=tasksRequired
+        taskProgress()
     } else {
         alert("Not enough tasks completed")
     } 
