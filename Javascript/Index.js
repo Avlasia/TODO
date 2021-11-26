@@ -348,6 +348,7 @@ function createSubGroup(){
         alert("Name must be letters and numbers only")
     }
     subgroup[subgroupname] = selCol;
+    document.querySelector('.selbord').classList.remove('selbord')
 }
 
 function taskProgress(){
