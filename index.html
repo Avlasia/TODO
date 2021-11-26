@@ -18,14 +18,15 @@
         <!-- Side Nav Bar-->
         <div id=ListNav>
             <div id=ListOfLists>
-                <p id="All" onclick="loadtasks('All')">All</p>
+                <p id="All" onclick="loadtasks('All')" class="Active">All</p>
                 <div id="MyLists">
-                <p id="School" class="Active">School</p>
-                <p id="Chores">Chores</p>
+                <p id="School" onclick="loadtasks('School')">School</p>
+                <p id="Chores" onclick="loadtasks('Chores')">Chores</p>
                 </div>
+                <input id="NewList" type="text" placeholder="New List">
                 <p id="Completed" style="cursor: not-allowed; color: gray;">Completed</p>
             </div>
-            <input id="NewList" type="text" placeholder="New List">
+            
         </div>
 
         <!-- Right Details -->
@@ -35,20 +36,20 @@
                 <h3 style="margin-bottom: 5px;">Next Task:</h3>
                 <p id="NextTask"><img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span></p>
                 <div id="claim">
-                    <h1><span id="noComp">X</span id="noReq">/<span>X</span> Tasks Completed</h1>
-                    <button>CLAIM</button>
+                    <h1><span id="noComp">X</span>/<span id="noReq">X</span> Tasks Completed</h1>
+                    <button onclick="claimReward()">CLAIM</button>
                 </div>
             </div>
 
             <div id="line"></div>
             <div id="Notes">
                 <p>My Notes:</p>
-                <ul>
-                    <li>Hello</li>
+                <ul id="mynotes">
+                    <li>Currently inactive</li>
                     <li>required pattern="[a-zA-Z0-9]+"</li>
                     <li>Website address: https://avlasia.github.io/TODO/ :)</li>
                 </ul>
-                <input id="NewNote" type="text" placeholder="New Note">
+                <input id="NewNote" type="text" placeholder="New Note" onclick="createNote()">
             </div>
         </div>
 
@@ -90,8 +91,9 @@
                 <input id="nDesc" name="nDesc" type="text" placeholder="Add description" maxlength="1000"><br>
                 <label>Sub-group: </label><select id="nSubject" name="nSubject">
                     <option value="">None</option>
+                    <option value="Homework">Homework</option>
                 </select>
-                <button id="newSub">New Sub-group</button>
+                <button id="newSub" onclick="showSubForm()">New Sub-group</button>
                 <input id="nDate" name="nDate" type="date"><input id="nTime" name="nTime" type="time"><button onclick="addNewTask()">Create</button>
             </span>
             
@@ -112,6 +114,42 @@
              toilet paper attack claws fluff everywhere meow miao french ciao litterbox and kitty power. Why can't i catch that stupid red dot plop down in the middle where everybody walks so eat from dog's food so purrrrrr yet pet me pet me pet me pet me, bite, scratch, why are you petting me my water bowl is clean and freshly replenished, so i'll drink from the toilet. Catch eat throw up catch eat throw up bad birds cough hairball, eat toilet paper cats are cute lick butt, or hide at bottom of staircase to trip human jump around on couch, meow constantly until given food, . Sleeps on my head murf pratt ungow ungow. Hell is other people. Freak human out make funny noise mow mow mow mow mow mow success now attack human stare at ceiling, but sleep all day whilst slave is at work, play all night whilst slave is sleeping yet pelt around the house and up and down stairs chasing phantoms for refuse to drink water except out of someone's
               glass hiss and stare at nothing then run suddenly away scratch at door to be let outside, get let out then scratch at door immmediately after to be let back in. Wake up human for food at 4am drink water out of the faucet get suspicious of own shadow then go play with toilette paper sleeps on my head use lap as chair purr purr for no reason. Walk on car leaving trail of paw prints on hood and windshield drink from the toilet and good now the other hand, too always ensure to lay down in such a manner that tail can lightly brush human's nose cats secretly make all the worlds muffins. Missing until dinner time freak human out make funny noise mow mow mow mow mow mow success now attack human but i shredded your linens for you run at 3a
         </div>
+
+        <div id='pop-up'>
+            <div id='Blackout'></div>
+            <div id='popCont'>
+
+                <div id='ClaimMessage' class="hidden">
+                    <h1>Reward Claimed</h1>
+                    <img src="Images/Claimed.png" height='100px'> <!-- taken from https://commons.wikimedia.org/wiki/File:Emojione_BW_1F389.svg -->
+                    <p>Current version cannot autolink to you vending machine.<br>
+                        Please click the 'a' button on your device to claim your reward</p>
+                    <button onclick="closePU()">DONE</button>
+                </div>
+            
+                <div id='SubGroupForm'>
+                    <h1>New Sub-Group</h1>
+                    <input id="Subgroup" type="text" placeholder="Subgroup Title">
+                    <p id="colorpick">Color: 
+                        <span id="cred" onclick="setCol('red')"> </span>
+                        <span id="corange" onclick="setCol('orange')"> </span>
+                        <span id="cyellow" onclick="setCol('yellow')"> </span>
+                        <span id="clightgreen" onclick="setCol('lightgreen')"> </span>
+                        <span id="clightblue" onclick="setCol('lightblue')"> </span>
+                        <span id="cplum" onclick="setCol('plum')"> </span>
+                    </p>
+                    
+                    <button onclick="closePU();createSubGroup();">DONE</button>
+                </div>
+
+                <div id='Setting'>
+                    <input id="newtaskreq" type="number" placeholder="Tasks Required">
+                    <button onclick="updateTaskReq()">Update</button>
+                </div>
+            </div>
+            <p id="closePU" onclick="closePU()">x</p>
+        </div>
+
         <script src="Javascript/Index.js"></script>
     </body>
 </html>

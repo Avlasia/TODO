@@ -4,21 +4,25 @@ const d = new Date();
 var weekdayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 var date = `${weekdayNames[d.getDay()]} ${d.getDate()}, ${monthNames[d.getMonth()]}`
-var todayISO=d.toISOString().slice(0,10)
+
+//var todayISO=d.toISOString().slice(0,10)
+var todayISO = d.toLocaleDateString("sv")
 console.log(todayISO)
+
 var tommorowISO = new Date()
 tommorowISO.setDate(tommorowISO.getDate() + 1)
-tommorowISO = tommorowISO.toISOString().slice(0,10)
+tommorowISO = tommorowISO.toLocaleDateString("sv")
 console.log(tommorowISO)
 
 document.querySelector('#RightStuff h1').textContent = date;
 
+
 //Tasks
-var lists = [School,Chores]
+var lists = ['School','Chores']
 
 var todolist;
 todolist = [
-    ["", "Test this task looks right", "Various details", "Computing", "2021-11-24", "1:00", true],
+    ["", "Test this task looks right", "Various details", "Homework", "2021-11-24", "1:00", true],
     ["School", "Something else", "", "", "2021-11-27", "5:00", false]
 ]
 
@@ -31,9 +35,11 @@ var notes = [
 var tasksCompleted = 0;
 var tasksRequired = 5;
 
-var currentList = "School"
+var currentList = "All"
 
-var subjects = {}
+var subgroup = {
+    "Homework": 'red'
+}
 
 var nHeading = document.getElementById("nHeading")
 var nDesc = document.getElementById("nDesc")
@@ -49,7 +55,11 @@ var Later = document.getElementById("tLater")
 var nextTaskId = 0 
 var NextTaskDisplay = document.getElementById("NextTask")
 
+var listDisplay = document.getElementById("MyLists")
+
 var RightShown = true
+
+var selCol = ''
 
 function celebrateNT(){
     if(Today.textContent.replace(/\s/g,'') == 'Today Congratulations, You have cleared all tasks for today!'.replace(/\s/g,'')){
@@ -88,6 +98,7 @@ function displayTask(taskNo, taskDetails){
             task.innerHTML += '<span class="tUrgent">!</span>';
         }
         if(taskDetails[3]!==''){ //Sub
+            task.classList.add(subgroup[taskDetails[3]])
             task.innerHTML += `<span class="tSub">${taskDetails[3]}</span>`;
         }
 
@@ -108,6 +119,7 @@ function displayTask(taskNo, taskDetails){
             task.innerHTML += '<span class="tUrgent">!</span>';
         }
         if(taskDetails[3]!==''){ //Sub
+            task.classList.add(subgroup[taskDetails[3]])
             task.innerHTML += `<span class="tSub">${taskDetails[3]}</span>`;
         }
 
@@ -132,6 +144,7 @@ function displayTask(taskNo, taskDetails){
             task.innerHTML += '<span class="tUrgent">!</span>';
         }
         if(taskDetails[3]!==''){ //Sub
+            task.classList.add(subgroup[taskDetails[3]])
             task.innerHTML += `<span class="tSub">${taskDetails[3]}</span>`;
         }
 
@@ -177,6 +190,7 @@ function completeTask(taskNo){
     console.log(donelist)
     celebrateNT()
     displayNextTask()
+    taskProgress()
 }
 
 function getNextTask(){
@@ -225,10 +239,14 @@ function displayNextTask(){
     if(todolist[nextTaskId] === '' || todolist[nextTaskId] === undefined){
         NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Checked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
     } else {
-        NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Unchecked.png"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
+        NextTaskDisplay.innerHTML = '<img class="invert" src="Images/Unchecked.png" onclick="completeNextTasks();"><span id=NextTaskTitle>Woo! No Tasks!</span><br><span id=NextTaskDesc></span>'
         NextTaskDisplay.querySelector("#NextTaskTitle").textContent = todolist[nextTaskId][1];
         NextTaskDisplay.querySelector("#NextTaskDesc").textContent = todolist[nextTaskId][2];
 }
+}
+
+function completeNextTasks(){
+    completeTask(nextTaskId)
 }
 
 function rightToggle(){
@@ -248,6 +266,8 @@ function loadtasks(listName){
     Tommorow.innerHTML = '<h1>Tomorrow</h1><p id="AllClearedt" class="allclear">Congratulations, You have no tasks tomorrow!</p>';
     Later.innerHTML = '<h1>Later/No Date</h1><p id="AllClearedl" class="allclear">Congratulations, You have no other tasks!</p>';
 
+    document.querySelector('.Active').classList.remove('Active')
+    document.getElementById(currentList).classList.add('Active')
     var i = 0
     while(todolist[i] !== undefined){
         if(todolist[i] !== ''){
@@ -259,6 +279,89 @@ function loadtasks(listName){
     celebrateNT()
 }
 
+function createNewList(newList){
+    lists.push(newList);
+    displayLists()
+}
+
+function displayLists(){
+    listDisplay.innerHTML = '';
+    var i = 0;
+    while(lists[i] !== undefined){
+        listDisplay.innerHTML += `<p id="${lists[i]}" onclick="loadtasks('${lists[i]}')">${lists[i]}</p>`;
+        i++;
+    }
+}
+
+function setCol(c){
+    selCol=c
+    if(document.querySelector('.selbord')){
+        document.querySelector('.selbord').classList.remove('selbord')
+    }
+    document.getElementById('c'+c).classList.add('selbord')
+}
+
+function isAlphaNumeric(str) {
+    var code, i, len;
+  
+    for (i = 0, len = str.length; i < len; i++) {
+      code = str.charCodeAt(i);
+      if (!(code > 47 && code < 58) && // numeric (0-9)
+          !(code > 64 && code < 91) && // upper alpha (A-Z)
+          !(code > 96 && code < 123)) { // lower alpha (a-z)
+        return false;
+      }
+    }
+    return true;
+}; 
+//Function obatained from 'Michael Martin-Smucker' @https://stackoverflow.com/questions/4434076/best-way-to-alphanumeric-check-in-javascript
+
+function closePU(){
+    document.getElementById('pop-up').classList.add('hidden')
+    document.getElementById('ClaimMessage').classList.add('hidden')
+    document.getElementById('SubGroupForm').classList.add('hidden')
+}
+
+function claimReward(){
+    if(tasksCompleted >= tasksRequired){
+        document.getElementById('pop-up').classList.remove('hidden')
+        document.getElementById('ClaimMessage').classList.remove('hidden')
+        tasksCompleted-=tasksRequired
+    } else {
+        alert("Not enough tasks completed")
+    } 
+}
+
+function showSubForm(){
+    document.getElementById('pop-up').classList.remove('hidden')
+    document.getElementById('SubGroupForm').classList.remove('hidden')
+}
+
+function createSubGroup(){
+    subgroupname = document.getElementById("Subgroup").value
+    if(isAlphaNumeric(subgroupname)){
+        if(subgroupname !== ''){
+            document.getElementById('nSubject').innerHTML+=`<option value="${subgroupname}">${subgroupname}</option>`;
+        }else{
+            alert("Name must be entered")
+        }
+    } else {
+        alert("Name must be letters and numbers only")
+    }
+    subgroup[subgroupname] = selCol;
+}
+
+function taskProgress(){
+    document.getElementById('noComp').textContent=tasksCompleted;
+    document.getElementById('noReq').textContent=tasksRequired;
+}
+
+function updateTaskReq(){
+    if(document.getElementById("newtaskreq").value){
+    tasksRequired = document.getElementById("newtaskreq").value;
+    }
+}
+
 document.getElementById('TaskForm').addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
         addNewTask();
@@ -268,11 +371,29 @@ document.getElementById('TaskForm').addEventListener("keyup", function(event) {
 
 document.getElementById('NewList').addEventListener("keyup", function(event) {
     if (event.code === 'Enter') {
-        
+        var newList = document.getElementById('NewList').value;
+        if(isAlphaNumeric(newList)){
+            if(newList !== ''){
+                createNewList(newList)
+                document.getElementById('NewList').value = ''
+            }else{
+                alert("Name must be entered")
+            }
+        } else {
+            alert("Name must be letters and numbers only")
+        }
     }
 });
 
+// document.getElementById('NewNote').addEventListener("keyup", function(event) {
+//     if (event.code === 'Enter') {
+//         var newNote = document.getElementById('NewNote').value;
 
-loadtasks('School')
+//         document.getElementById("mynotes").innerHTML += `<li id=>${newNote}</li>`;
+//     }
+// });
+
+
+loadtasks(currentList)
 displayNextTask()
-celebrateNT()
+taskProgress()

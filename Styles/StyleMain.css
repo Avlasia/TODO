@@ -99,6 +99,22 @@ nav a{
     filter: brightness(var(--coloroneAccent));
 }
 
+#NewList{
+    background-color: var(--colorone);
+    font-size: 30px;
+    color: var(--coloronecomp);
+    border: none;
+    
+    border-bottom: 2px solid white;
+    margin-left: 7.5px;
+    font-family: 'Assistant', sans-serif;
+    width: 100%;
+}
+
+#NewList::placeholder{
+    color: var(--coloronecomp);
+}
+
 #RightStuff{
     color: var(--coloronecomp); 
     width: 300px;
@@ -248,15 +264,131 @@ nav a{
     margin-left: 5px;
 }
 
-.red img{
-    filter: invert(19%) sepia(100%) saturate(7447%) hue-rotate(359deg) brightness(96%) contrast(113%);
-}
-
-.red .tSub{
-    background-color: red;
-}
-
 #end{
     color: var(--colortwo);
 }
+
+#Blackout{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.596);
+}
+
+#popCont{
+    position: absolute;
+    height: 400px;
+    width: 600px;
+    top: 50vh;
+    margin-top: -200px;
+    left: 50vw;
+    margin-left: -300px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 50px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#closePU{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    margin-top: -190px;
+    margin-left: 265px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#ClaimMessage button{
+    border: 5px double black;
+    border-style: double;
+    background-color: var(--coloronecomp);
+    color: black;
+    font-weight: 800;
+}
+
+#colorpick{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#colorpick span{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    
+    padding: 0 10px;
+    margin: 5px;
+}
+
+.selbord{
+    border: 1px solid black;
+}
+
+#colorpick #cred{
+    background-color: red;
+}
+#colorpick #corange{
+    background-color: orange;
+}
+#colorpick #cyellow{
+    background-color: yellow;
+}
+#colorpick #clightgreen{
+    background-color: lightgreen;
+}
+#colorpick #clightblue{
+    background-color: lightblue;
+}
+#colorpick #cplum{
+    background-color: plum;
+}
+
+.red img{
+    filter: invert(19%) sepia(100%) saturate(7447%) hue-rotate(359deg) brightness(96%) contrast(113%);
+}
+.orange img{
+    filter: invert(75%) sepia(83%) saturate(615%) hue-rotate(323deg) brightness(102%) contrast(103%);
+}
+.yellow img{
+    filter: invert(81%) sepia(42%) saturate(675%) hue-rotate(13deg) brightness(105%) contrast(91%);
+}
+.lightgreen img{
+    filter: invert(86%) sepia(62%) saturate(487%) hue-rotate(51deg) brightness(98%) contrast(107%);
+}
+.lightblue img{
+    filter: invert(63%) sepia(59%) saturate(745%) hue-rotate(184deg) brightness(104%) contrast(103%);
+}
+.plum img{
+    filter: invert(71%) sepia(57%) saturate(5740%) hue-rotate(234deg) brightness(103%) contrast(102%);
+}
+
+.red .tSub{
+    background-color: #ff7474;
+    color: white;
+}
+.orange .tSub{
+    background-color: #ffb048;
+    color: white;
+}
+.yellow .tSub{
+    background-color: #dce741;
+    color: white;
+}
+.lightgreen .tSub{
+    background-color: #74ff74;
+    color: white;
+}
+.lightblue .tSub{
+    background-color: #74bcff;
+    color: white;
+}
+.plum .tSub{
+    background-color: #d374ff;
+    color: white;
+}
+
 
