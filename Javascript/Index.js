@@ -345,9 +345,10 @@ function createSubGroup(){
             alert("Name must be entered")
         }
     } else {
-        alert("Name must be letters and numbers only")
+        alert("Name must be letters and numbers only (Check you have no spaces at the ends)")
     }
     subgroup[subgroupname] = selCol;
+    selCol = ''
     document.querySelector('.selbord').classList.remove('selbord')
 }
 
