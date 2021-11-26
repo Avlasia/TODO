@@ -22,7 +22,7 @@ var lists = ['School','Chores']
 
 var todolist;
 todolist = [
-    ["", "Test this task looks right", "Various details", "Homework", "2021-11-24", "1:00", true],
+    ["", "Test this task looks right", "Various details", "", "2021-11-24", "1:00", true],
     ["School", "Something else", "", "", "2021-11-27", "5:00", false]
 ]
 
@@ -37,9 +37,7 @@ var tasksRequired = 5;
 
 var currentList = "All"
 
-var subgroup = {
-    "Homework": 'red'
-}
+var subgroup = {}
 
 var nHeading = document.getElementById("nHeading")
 var nDesc = document.getElementById("nDesc")
